@@ -18,7 +18,8 @@ public class DatePresentation {
         int upperHalf = dbDate.getYear() / 100;
         int lowerHalf = dbDate.getYear() % 100;
 
-        return decade(upperHalf) + " " +  decade(lowerHalf);
+        String lowerHalfString = decade(lowerHalf);
+        return decade(upperHalf) + " " +  (lowerHalfString == null ? "Hundred" : lowerHalfString);
     }
 
     private String decade(int value) {

@@ -55,6 +55,12 @@ public class DatePresentationTest {
         DBDate date = new DBDate("23-05-1911 06:05:49 am");
         assertTrue("Equals", (app.getYear(date)).equals("Nineteen Eleven"));
     }
+    
+    @Test
+    public void testYearWithTwoZero() {
+        DBDate date = new DBDate("23-05-2000 06:05:49 am");
+        assertTrue("Equals", (app.getYear(date)).equals("Twenty Hundred"));
+    }
 
     @Test
     public void testDate() {
