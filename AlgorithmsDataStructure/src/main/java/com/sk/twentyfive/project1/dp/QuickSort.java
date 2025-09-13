@@ -4,16 +4,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-// Implement non recursive version
+// Implement non recursive version - Randomize the pivot
 public class QuickSort {
 
     static void quickSortR2(int[] a, int lo, int hi) {
 
-        List<Integer> list = Arrays.stream(a).boxed().collect(Collectors.toList());
-        Collections.shuffle(list);
-        a = list.stream().mapToInt(i->i).toArray();
+       // List<Integer> list = Arrays.stream(a).boxed().collect(Collectors.toList());
+        //Collections.shuffle(list);
+      //  a = list.stream().mapToInt(i->i).toArray();
         System.out.println("SubArr: ");
         printSubArray(a);
 
@@ -27,7 +26,7 @@ public class QuickSort {
     }
 
     private static int partition(int[] a, int lo, int hi) {
-        System.out.println("partition with lo:" + lo + " :hiL: " + hi);
+        System.out.println("partition with lo:" + lo + " :hi: " + hi);
         int i = lo, j = hi+1;
         int v = a[lo];
         while (true) {
@@ -35,14 +34,17 @@ public class QuickSort {
             while (v < a[--j]) if (j == lo)  break;
 
             if (i >= j) break;
+
+            System.out.println("exchange i < j");
             exch(a,i,j);
         }
+        System.out.println("exchange lo j");
         exch(a,lo,j);
+        printSubArray(a);
         return j;
     }
 
     private static void exch(int[] a, int i, int j) {
-        System.out.println("exchange ");
         int temp = a[i];
         a[i] = a[j];
         a[j] = temp;

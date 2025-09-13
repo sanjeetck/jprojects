@@ -1,9 +1,8 @@
 package com.sk.twentyfive.project1.recursive;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.stream.Stream;
 
+// USE lib to partition - NOT OPTIMIZED
 public class QuickSortR {
 
     static int[] quickSortR(int[] a) {
