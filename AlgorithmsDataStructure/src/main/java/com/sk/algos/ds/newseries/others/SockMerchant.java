@@ -1,4 +1,4 @@
-package com.sanjeet.solutions.others;
+package com.sk.algos.ds.newseries.others;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

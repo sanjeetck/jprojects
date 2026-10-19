@@ -1,4 +1,4 @@
-package com.sk.ds.algos;
+package com.sk.algos.ds.newseries.sort;
 
 import java.util.Arrays;
 

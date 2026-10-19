@@ -1,4 +1,4 @@
-package com.sk.twentysix.may.algos.prefix;
+package com.sk.algos.ds.newseries.algos.prefix;
 
 import java.util.Arrays;
 
