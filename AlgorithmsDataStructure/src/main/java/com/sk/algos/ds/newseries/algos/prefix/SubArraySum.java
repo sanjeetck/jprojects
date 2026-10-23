@@ -1,4 +1,4 @@
-package com.sk.algos.ds.newseries.arrays;
+package com.sk.algos.ds.newseries.algos.prefix;
 
 import java.util.HashMap;
 import java.util.Map;
