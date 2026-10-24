@@ -11,11 +11,10 @@ public class LongestSubArraySum {
 
         int sum = 0;
         int maxLen = 0;
-        int len =0;
+        int len;
 
         for (int i=0; i < nums.length; i++) {
             sum += nums[i];
-            len = 0;
 
             int reqP = sum - k;
 
@@ -41,11 +40,10 @@ public class LongestSubArraySum {
 
         int sum = 0;
         int maxLen = 0;
-        int len =0;
+        int len;
 
         for (int i=0; i < nums.length; i++) {
             sum += nums[i];
-            len = 0;
 
             int reqP = sum - k;
 
