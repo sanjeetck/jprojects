@@ -1,51 +1,54 @@
 package com.sk.algos.ds.newseries.algos.slidingwindow;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MaxVovelInSubString {
 
-    public static Map<String, String> vowels = new HashMap<String, String>() {{
-        put("a", "a");
-        put("e", "e");
-        put("i", "i");
-        put("o", "o");
-        put("u", "u");}};
+    public static Set<Character> vowels = new HashSet<Character>() {{
+        add('a');
+        add('e');
+        add('i');
+        add('o');
+        add('u');
+    }};
 
     public static int maxVowels(String s, int k) {
-        if (s == null || s.length() == 0) return -1;
-        if (k > s.length()) return -1;
+        int len = s.length();
+        if (s == null ||  len == 0 || k > len) return -1;
 
-        int sum = 0;
+        int count = 0;
 
         for (int i=0; i < k; i++) {
-            if (vowels.get(s.substring(i, i+1)) != null) sum++;
+            if (vowels.contains(s.charAt(i))) count++;
         }
 
-        int windowSum = sum;
+        int wCount = count;
         System.out.println("Initial Substring : " + s.substring(0, k));
-        System.out.println("Initial count : " + sum);
+        System.out.println("Initial count : " + count);
 
-        for (int cntr=1; cntr <= s.length()-k; cntr++) {
-            System.out.println("Substring: " + s.substring(cntr, cntr+k));
+        for (int i=1; i <= s.length()-k; i++) {
+            System.out.println("Substring: " + s.substring(i, i+k));
 
-            System.out.println("1 s.substring(cntr-1, cntr) : " + s.substring(cntr-1, cntr));
-            if (vowels.get(s.substring(cntr-1, cntr)) != null) {
-                System.out.println("Subtract for : " + s.substring(cntr-1, cntr));
-                sum--;
+            char ch = s.charAt(i-1);
+            System.out.println("1 s.charAt(i-1) : " + ch);
+            if (vowels.contains(ch)) {
+                System.out.println("Subtract for ch: " + ch);
+                count--;
             }
 
-            System.out.println("2 s.substring(cntr+k-1, cntr+k) : " + s.substring(cntr+k-1, cntr+k));
-            if (vowels.get(s.substring(cntr+k-1, cntr+k)) != null) {
-                System.out.println("add for : " + s.substring(cntr+k-1, cntr+k));
-                sum++;
+            ch = s.charAt(i+k-1);
+            System.out.println("2 ss.charAt(i+k-1) : " + ch);
+            if (vowels.contains(ch)) {
+                System.out.println("add for ch: " + ch);
+                count++;
             }
 
 
-            windowSum = Math.max(windowSum, sum);
-            System.out.println(" windowSum : " + windowSum);
+            wCount = Math.max(wCount, count);
+            System.out.println("wCount : " + wCount);
         }
-        return windowSum;
+        return wCount;
     }
 
     public static void main(String[] args) {
